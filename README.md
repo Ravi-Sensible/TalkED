@@ -1,4 +1,5 @@
 # talked
+flutter SDK flutter_macos_3.35.6-stable
 
 A new Flutter project.
 
