@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:talked/pages/onboard_page.dart';
 import 'home_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -15,10 +16,10 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     // Wait 2 seconds then go to HomePage
-    Timer(const Duration(seconds: 10), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const HomePage()),
+        MaterialPageRoute(builder: (_) => const OnboardingScreen()),
       );
     });
   }
@@ -26,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,9 +40,9 @@ class _SplashPageState extends State<SplashPage> {
             ),
             const SizedBox(height: 20),
             const Text(
-              'My Flutter App',
+              'Disha Computers',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),

@@ -10,8 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TalkED',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.light,
       home: const SplashPage(),
     );
   }
