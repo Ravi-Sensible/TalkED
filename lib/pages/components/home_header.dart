@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:talked/pages/components/header_pill.dart';
+
+class HomeHeader extends StatelessWidget {
+  const HomeHeader({super.key, required this.onOpenDrawer});
+
+  final VoidCallback onOpenDrawer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              InkWell(
+                onTap: onOpenDrawer,
+                borderRadius: BorderRadius.circular(24),
+                child: const CircleAvatar(
+                  radius: 24,
+                  backgroundImage: AssetImage('assets/icons/profile.png'),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: const [
+                    HeaderPill(icon: Icons.workspace_premium_rounded, text: '25,000'),
+                    SizedBox(width: 10),
+                    HeaderPill(icon: Icons.notifications_none_rounded),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 18),
+          Text(
+            'Hello, Anya !',
+            style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Keep up the great work.',
+            style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey[700]),
+          ),
+        ],
+      ),
+    );
+  }
+}
