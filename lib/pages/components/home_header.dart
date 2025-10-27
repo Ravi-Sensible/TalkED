@@ -3,9 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:talked/pages/components/header_pill.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key, required this.onOpenDrawer});
+  const HomeHeader({
+    super.key,
+    required this.onOpenDrawer,
+    this.showGreeting = true, // 👈 optional prop with default = true
+  });
 
   final VoidCallback onOpenDrawer;
+  final bool showGreeting; // 👈 defines whether greeting should be shown
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,10 @@ class HomeHeader extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: const [
-                    HeaderPill(icon: Icons.workspace_premium_rounded, text: '25,000'),
+                    HeaderPill(
+                      icon: Icons.workspace_premium_rounded,
+                      text: '25,000',
+                    ),
                     SizedBox(width: 10),
                     HeaderPill(icon: Icons.notifications_none_rounded),
                   ],
@@ -37,16 +45,26 @@ class HomeHeader extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 18),
-          Text(
-            'Hello, Anya !',
-            style: GoogleFonts.poppins(fontSize: 22, fontWeight: FontWeight.w700),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            'Keep up the great work.',
-            style: GoogleFonts.poppins(fontSize: 13, color: Colors.grey[700]),
-          ),
+
+          // 👇 Conditionally show greeting text
+          if (showGreeting) ...[
+            const SizedBox(height: 18),
+            Text(
+              'Hello, Anya !',
+              style: GoogleFonts.poppins(
+                fontSize: 22,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Keep up the great work.',
+              style: GoogleFonts.poppins(
+                fontSize: 13,
+                color: Colors.grey[700],
+              ),
+            ),
+          ],
         ],
       ),
     );
