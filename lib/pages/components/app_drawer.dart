@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:talked/pages/cart_page.dart';
 import 'package:talked/pages/simple_page.dart';
 import 'package:talked/pages/splash_page.dart';
 import 'package:talked/utils/constants.dart';
@@ -131,7 +132,7 @@ class AppDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const SimplePage(title: 'My Cart')),
+                  MaterialPageRoute(builder: (_) => const CartPage()),
                 );
               },
             ),
