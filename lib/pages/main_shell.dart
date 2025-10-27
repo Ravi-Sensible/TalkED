@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:talked/pages/course_page.dart';
 import 'package:talked/pages/home_page.dart';
+import 'package:talked/pages/store_page.dart';
 
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
@@ -18,9 +20,13 @@ class _MainShellState extends State<MainShell> {
           onSelectTab: (i) => setState(() => _index = i),
         );
       case 1:
-        return const _PlaceholderPage(title: 'Courses');
+        return CoursePage(
+          onSelectTab: (i) => setState(() => _index = i),
+        );
       case 2:
-        return const _PlaceholderPage(title: 'Store');
+        return StorePage(
+          onSelectTab: (i) => setState(() => _index = i),
+        );
       case 3:
         return const _PlaceholderPage(title: 'Feed');
       case 4:
