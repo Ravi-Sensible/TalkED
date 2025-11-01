@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:talked/pages/components/header_pill.dart';
+import 'package:talked/pages/notification_page.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -33,13 +34,17 @@ class HomeHeader extends StatelessWidget {
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    HeaderPill(
+                  children: [
+                    const HeaderPill(
                       icon: Icons.workspace_premium_rounded,
                       text: '25,000',
                     ),
-                    SizedBox(width: 10),
-                    HeaderPill(icon: Icons.notifications_none_rounded),
+                    const SizedBox(width: 10),
+                    HeaderPill(icon: Icons.notifications_none_rounded,  onTap: () {
+                      Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => const NotificationsPage()),
+                      );
+                    },),
                   ],
                 ),
               ),

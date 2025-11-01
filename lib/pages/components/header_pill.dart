@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 class HeaderPill extends StatelessWidget {
-  const HeaderPill({super.key, required this.icon, this.text});
+  const HeaderPill({
+    super.key,
+    required this.icon,
+    this.text,
+    this.onTap, // 👈 added
+  });
 
   final IconData icon;
   final String? text;
+  final VoidCallback? onTap; // 👈 optional
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
+    final pill = DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -22,7 +27,10 @@ class HeaderPill extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: text == null ? 10 : 12, vertical: 8),
+        padding: EdgeInsets.symmetric(
+          horizontal: text == null ? 10 : 12,
+          vertical: 8,
+        ),
         child: Row(
           children: [
             Icon(icon, color: const Color(0xFFFFA000), size: 20),
@@ -30,12 +38,18 @@ class HeaderPill extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 text!,
-                style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600),
+                style: GoogleFonts.poppins(
+                    fontSize: 12, fontWeight: FontWeight.w600),
               ),
             ],
           ],
         ),
       ),
     );
+
+    // Wrap in GestureDetector only if clickable
+    return onTap != null
+        ? GestureDetector(onTap: onTap, child: pill)
+        : pill;
   }
 }
