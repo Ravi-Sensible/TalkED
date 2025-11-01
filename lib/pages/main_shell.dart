@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:talked/pages/course_page.dart';
+import 'package:talked/pages/feed_page.dart';
 import 'package:talked/pages/home_page.dart';
+import 'package:talked/pages/profile_page.dart';
 import 'package:talked/pages/store_page.dart';
 
 class MainShell extends StatefulWidget {
@@ -28,10 +30,14 @@ class _MainShellState extends State<MainShell> {
           onSelectTab: (i) => setState(() => _index = i),
         );
       case 3:
-        return const _PlaceholderPage(title: 'Feed');
+        return FeedPage(
+          onSelectTab: (i) => setState(() => _index = i),
+        );
       case 4:
       default:
-        return const _PlaceholderPage(title: 'Profile');
+      return ProfilePage(
+        onSelectTab: (i) => setState(() => _index = i),
+      );
     }
   }
 
