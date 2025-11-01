@@ -117,7 +117,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         width: isSelected ? 2 : 1,
                       ),
                       color: isSelected
-                          ? Colors.red.withOpacity(0.1)
+                          ? Colors.red.withValues(alpha: 0.1)
                           : Colors.white,
                     ),
                     child: Text(
@@ -192,20 +192,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2, // Store tab
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.menu_book), label: "Courses"),
-          BottomNavigationBarItem(icon: Icon(Icons.store), label: "Store"),
-          BottomNavigationBarItem(icon: Icon(Icons.feed), label: "Feed"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
       ),
     );
   }
