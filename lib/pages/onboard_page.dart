@@ -78,37 +78,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   Widget _buildHeader() {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.only(top: 24, bottom: 16),
       child: Column(
         children: [
-          Text(
-            'An ISO 9001:2015 Certified',
-            style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey[600], letterSpacing: 0.5),
-          ),
-          const SizedBox(height: 8),
-          RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: 'DiSHA',
-                  style: GoogleFonts.poppins(fontSize: 42, fontWeight: FontWeight.w800, color: const Color(0xFFFF0000), letterSpacing: 2),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'COMPUTER INSTITUTE',
-            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87, letterSpacing: 1.5),
-          ),
-          Text(
-            'Experts in Computer Training',
-            style: GoogleFonts.poppins(fontSize: 11, color: Colors.grey[600], letterSpacing: 0.3),
+          const SizedBox(height: 10),
+
+          /// 🔥 LOGO IMAGE
+          Image.asset(
+            'assets/images/logo.png',
+            height: 70,
+            fit: BoxFit.contain,
           ),
         ],
       ),
     );
   }
+
 
   Widget _buildPage(OnboardingData data) {
     return Padding(
